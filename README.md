@@ -1,46 +1,71 @@
-# Getting Started with Create React App
+# Leave App Client - React Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Leave App Client repository! This React application is designed to manage employee leave requests, providing a user-friendly interface for submitting and viewing leave details.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Introduction](#introduction)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
 
-### `npm start`
+## Introduction
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The Leave App Client is a frontend application that complements the Leave App Server. It offers an interactive way for employees to submit leave requests and view their leave history. The application is built using React and leverages modern web technologies to provide a seamless experience.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Before you begin, ensure you have the following installed:
 
-### `npm run build`
+- Node.js (https://nodejs.org/)
+- npm (included with Node.js)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Clone the Repository:**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```bash
+   git clone https://github.com/AbhishekMali21/LEAVE-APP-CLIENT.git
+   cd leave-app-client
+   ```
 
-### `npm run eject`
+2. **Install Dependencies:**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+   ```bash
+   npm install
+   ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Usage
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. **Run the Development Server:**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+   ```bash
+   npm start
+   ```
 
-## Learn More
+   This will start the development server and open the application in your default web browser at `http://localhost:3000`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. **Submit Leave Requests:**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   Use the Leave Details Form to submit leave requests. Select the employee, choose the leave type, provide start and end dates, and a reason for the leave.
+
+3. **View Leave History:**
+
+   The Leave List component displays the leave history for the selected employee.
+
+## Features
+
+- User-friendly interface for leave request submission.
+- Leave history display for individual employees.
+- Stylish and responsive design using styled components.
+
+## Technologies Used
+
+- React (https://reactjs.org/)
+- styled-components (https://styled-components.com/)
+- axios (https://axios-http.com/)
