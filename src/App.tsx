@@ -1,26 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import LeaveDetailsForm from './components/LeaveDetailsForm';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App: React.FC = () => {
+	const handleSubmit = (data: any) => {
+		console.log('Submitted data:', data);
+	};
+
+	return (
+		<div>
+			<br />
+			<br />
+			<LeaveDetailsForm onSubmit={handleSubmit} />
+		</div>
+	);
+};
 
 export default App;
