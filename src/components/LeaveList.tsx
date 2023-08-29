@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
@@ -14,10 +15,11 @@ interface Leave {
 
 interface LeaveListProps {
 	empId: string;
+	empName: string;
 	formReset?: boolean;
 }
 
-const LeaveList: React.FC<LeaveListProps> = ({ empId, formReset }) => {
+const LeaveList: React.FC<LeaveListProps> = ({ empId, empName, formReset }) => {
 	const [leaveList, setLeaveList] = useState<Leave[]>([]);
 
 	useEffect(() => {
@@ -40,9 +42,40 @@ const LeaveList: React.FC<LeaveListProps> = ({ empId, formReset }) => {
 		}
 	};
 
+	const handleDownloadExcel = async () => {
+		try {
+			const response = await axios.get(
+				`http://localhost:9090/api/leaves/employee/${empId}/download-excel`,
+				{ responseType: 'arraybuffer' }
+			);
+
+			// Create a Blob from the response data
+			const blob = new Blob([response.data], {
+				type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+			});
+
+			// Create a temporary link and trigger the download
+			const url = window.URL.createObjectURL(blob);
+			const link = document.createElement('a');
+			link.href = url;
+			link.download = `leave-details.xlsx`;
+			link.click();
+
+			// Clean up resources
+			window.URL.revokeObjectURL(url);
+		} catch (error) {
+			console.error('Error downloading Excel:', error);
+		}
+	};
+
 	return (
 		<LeaveListContainer>
-			<h2>Leaves Taken by Employee ID: {empId}</h2>
+			<h2>
+				Leaves Taken by Employee: {empName} [Emp Id: {empId}]
+				<DownloadButton onClick={handleDownloadExcel}>
+					Download Excel
+				</DownloadButton>
+			</h2>
 			<Table>
 				<thead>
 					<tr>
@@ -95,6 +128,20 @@ const Table = styled.table`
 
 const TableRow = styled.tr<{ isOdd: boolean }>`
 	background-color: ${(props) => (props.isOdd ? '#f2f2f2' : 'white')};
+`;
+
+const DownloadButton = styled.button`
+	padding: 5px 10px;
+	background-color: #28a745;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-left: 10px;
+
+	&:hover {
+		background-color: #218838;
+	}
 `;
 
 export default LeaveList;

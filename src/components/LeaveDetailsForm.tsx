@@ -217,7 +217,10 @@ const LeaveDetailsForm: React.FC<LeaveDetailsFormProps> = ({ onSubmit }) => {
 					</ButtonContainer>
 				</Form>
 			</FormContainer>
-			<LeaveList empId={formData.employeeRequest.empId} />
+			<LeaveList
+				empId={formData.employeeRequest.empId}
+				empName={formData.employeeRequest.empName}
+			/>
 			{/* formReset={formReset} */}
 		</>
 	);
