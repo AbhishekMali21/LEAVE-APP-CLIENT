@@ -11,6 +11,7 @@ interface Leave {
 	leaveEndDate: string;
 	leaveType: string;
 	leaveReason: string;
+	appliedDate: string;
 }
 
 interface LeaveListProps {
@@ -83,6 +84,7 @@ const LeaveList: React.FC<LeaveListProps> = ({ empId, empName, formReset }) => {
 						<th>Start Date</th>
 						<th>End Date</th>
 						<th>Reason</th>
+						<th>Applied Date</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -92,6 +94,7 @@ const LeaveList: React.FC<LeaveListProps> = ({ empId, empName, formReset }) => {
 							<td>{leave.leaveStartDate}</td>
 							<td>{leave.leaveEndDate}</td>
 							<td>{leave.leaveReason}</td>
+							<td>{leave.appliedDate}</td>
 						</TableRow>
 					))}
 				</tbody>
